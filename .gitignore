@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# directorys
+/.idea/*
+/__pycache__/*
+install_dir.txt
