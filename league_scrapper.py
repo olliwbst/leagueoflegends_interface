@@ -19,7 +19,7 @@ class LeagueToolBelt:
         self.install_dir = None
         self.port = None
         self.auth = None
-        self.cache_dir = './cache'
+        self.cache_dir = './resources/cache'
         self.version = None
 
         self.__set_initial_data()
