@@ -97,7 +97,7 @@ class LeagueToolBelt:
         return is_connected.json()
 
     def version_check(self):
-        with open(f'{self.cache_dir}/champ_info.json') as f:
+        with open(f'{self.cache_dir}/champ_info.json', encoding='utf8') as f:
             current_cached_json = json.load(f)
             current_cached_game_version = current_cached_json['version']
         f.close()
@@ -108,9 +108,12 @@ class LeagueToolBelt:
         self.version = current_game_version
 
         if current_cached_game_version != current_game_version:
-            self.champion_check(current_cached_json, current_json)
+            response = requests.get(f'http://ddragon.leagueoflegends.com/cdn/{self.version}'
+                                    f'/data/en_US/champion.json')
+            new_json = json.loads(response.text)
+            self.champion_check(current_cached_json, new_json)
             with open(f'{self.cache_dir}/champ_info.json', 'w') as f:
-                json.dump(current_json, f)
+                json.dump(new_json, f)
             f.close()
 
     def champion_check(self, current_cached_json, current_json):

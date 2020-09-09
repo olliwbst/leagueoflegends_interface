@@ -132,3 +132,4 @@ dmypy.json
 /.idea/*
 /__pycache__/*
 install_dir.txt
+APIKey.txt
