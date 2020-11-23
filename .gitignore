@@ -130,6 +130,7 @@ dmypy.json
 
 # directorys
 /.idea/*
+/.vscode/*
 /__pycache__/*
 install_dir.txt
 APIKey.txt
